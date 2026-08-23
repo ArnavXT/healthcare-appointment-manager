@@ -13,8 +13,8 @@ export default function DashboardPatient() {
       try {
         const token = localStorage.getItem('token');
         const [aptRes, docRes] = await Promise.all([
-          axios.get('http://localhost:5000/api/patient/appointments', { headers: { Authorization: `Bearer ${token}` } }),
-          axios.get('http://localhost:5000/api/patient/doctors', { headers: { Authorization: `Bearer ${token}` } })
+          axios.get(`\${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/api/patient/appointments`, { headers: { Authorization: `Bearer ${token}` } }),
+          axios.get(`\${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/api/patient/doctors`, { headers: { Authorization: `Bearer ${token}` } })
         ]);
         setAppointments(aptRes.data);
         setDoctors(docRes.data);
