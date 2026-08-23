@@ -9,7 +9,7 @@ export default function DashboardDoctor() {
     const fetchAppointments = async () => {
       try {
         const token = localStorage.getItem('token');
-        const res = await axios.get(`\${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/api/doctor/appointments`, {
+        const res = await axios.get(`${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/api/doctor/appointments`, {
           headers: { Authorization: `Bearer ${token}` }
         });
         setAppointments(res.data);

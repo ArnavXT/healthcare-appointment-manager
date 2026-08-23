@@ -45,14 +45,14 @@ export default function AuthDrawer() {
     
     try {
       if (renderMode === 'login') {
-        const res = await axios.post(`\${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/api/auth/login`, { email, password });
+        const res = await axios.post(`${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/api/auth/login`, { email, password });
         localStorage.setItem('token', res.data.token);
         localStorage.setItem('user', JSON.stringify({ role: res.data.role, name: res.data.name, id: res.data.id }));
         handleClose();
         // Use window.location to force a full re-render so Navbar picks up localStorage changes
         window.location.href = '/dashboard'; 
       } else {
-        await axios.post(`\${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/api/auth/register`, { name, email, password, role: 'PATIENT' });
+        await axios.post(`${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/api/auth/register`, { name, email, password, role: 'PATIENT' });
         switchMode('login'); // auto switch to login on success
       }
     } catch (err) {

@@ -18,8 +18,8 @@ export default function DashboardAdmin() {
     try {
       const token = localStorage.getItem('token');
       const [statsRes, docRes] = await Promise.all([
-        axios.get(`\${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/api/admin/stats`, { headers: { Authorization: `Bearer ${token}` } }),
-        axios.get(`\${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/api/admin/doctors`, { headers: { Authorization: `Bearer ${token}` } })
+        axios.get(`${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/api/admin/stats`, { headers: { Authorization: `Bearer ${token}` } }),
+        axios.get(`${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/api/admin/doctors`, { headers: { Authorization: `Bearer ${token}` } })
       ]);
       setStats(statsRes.data);
       setDoctors(docRes.data);
@@ -42,7 +42,7 @@ export default function DashboardAdmin() {
     try {
       setActionMessage('Processing...');
       const token = localStorage.getItem('token');
-      const res = await axios.post(`\${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/api/admin/doctors/${doctorId}/leave`, 
+      const res = await axios.post(`${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/api/admin/doctors/${doctorId}/leave`, 
         { leaveDate },
         { headers: { Authorization: `Bearer ${token}` } }
       );
@@ -58,7 +58,7 @@ export default function DashboardAdmin() {
     setCreateMsg('Creating...');
     try {
       const token = localStorage.getItem('token');
-      await axios.post(`\${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/api/admin/doctors`, newDoc, {
+      await axios.post(`${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/api/admin/doctors`, newDoc, {
         headers: { Authorization: `Bearer ${token}` }
       });
       setCreateMsg('Doctor created successfully!');
