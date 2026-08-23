@@ -35,8 +35,7 @@ A modern, full-stack healthcare appointment booking system built with a decouple
 2. Run `npm install`
 3. Copy `.env.example` to `.env` and fill in your keys.
 4. Run `npx prisma db push` to generate the tables.
-5. Run `node seed.js` to populate mock doctors and patients.
-6. Run `npm run dev` to start the server on `localhost:5000`.
+5. Run `npm run dev` to start the server on `localhost:5000`.
 
 ### 3. Frontend Setup
 1. Open terminal in the `frontend/` directory.
