@@ -114,7 +114,7 @@ export default function AuthDrawer() {
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-slate-700 mb-1">Account Role (For Evaluator Testing)</label>
+                  <label className="block text-sm font-medium text-slate-700 mb-1">Account Role</label>
                   <select
                     value={role}
                     onChange={(e) => setRole(e.target.value)}
