@@ -9,7 +9,7 @@ export const generatePreVisitSummary = async (symptoms) => {
     return { urgency: 'Unknown', chiefComplaint: 'API Key missing', questions: ['Please provide more details.'] };
   }
   try {
-    const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
+    const model = genAI.getGenerativeModel({ model: "gemini-3.5-flash" });
     const prompt = `Analyse these symptoms and return: urgency level (Low / Medium / High), chief complaint, and three suggested questions for the doctor. Format as JSON with keys: urgency, chiefComplaint, questions. Symptoms: ${symptoms}`;
     
     const result = await model.generateContent(prompt);
@@ -29,7 +29,7 @@ export const generatePostVisitSummary = async (notes) => {
     return { patientFriendlySummary: 'API Key missing', medicationSchedule: [], followUp: '' };
   }
   try {
-    const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
+    const model = genAI.getGenerativeModel({ model: "gemini-3.5-flash" });
     const prompt = `Convert these clinical notes into a patient-friendly summary with medication schedule and follow-up steps. Format as JSON with keys: patientFriendlySummary, medicationSchedule (array of strings), followUp. Notes: ${notes}`;
     
     const result = await model.generateContent(prompt);
